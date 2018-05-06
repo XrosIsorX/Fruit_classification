@@ -1,1 +1,3 @@
 data/*
+fruit_images.npy
+fruit_labels.npy
