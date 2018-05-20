@@ -36,7 +36,7 @@ for fruit_dir in glob.glob("data/Training/*"):
             dictionary[number] = fruit_label
             number+=1
 
-train_labels = fruit_labels[:10]
+train_labels = fruit_labels
 
 for label in train_labels:         
       print(label)
@@ -87,7 +87,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import LeakyReLU
 
 batch_size = 64
-epochs = 2
+epochs = 20
 num_classes = 60
 
 #Add network
@@ -103,7 +103,8 @@ model.add(LeakyReLU(alpha=0.0))
 model.add(MaxPooling2D(pool_size=(2, 2),padding='same'))
 model.add(Flatten())
 model.add(Dense(128, activation='linear'))
-model.add(LeakyReLU(alpha=0.0))                  
+model.add(LeakyReLU(alpha=0.0))
+model.add(Dropout(0.1))              
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adam(),metrics=['accuracy'])

@@ -1,6 +1,6 @@
 from keras.models import load_model
 
-model = load_model("fruit_model.h5py")
+model = load_model("fruit_model_e20_all.h5py")
 
 import glob
 import matplotlib.image as mpimg
@@ -45,8 +45,8 @@ for label in train_labels:
 from numpy import argmax
 
 valid_x = np.array(valid_x)
-result = model.predict(valid_x[:10])
+result = model.predict(valid_x[100:110])
 result = argmax(result, axis=1)
 result = class_to_number(result)
-print('valid_y',valid_y[:10])
-print('result', result)
+print('valid_y',valid_y[100:110])
+print('result ', result)
