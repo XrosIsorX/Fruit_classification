@@ -87,7 +87,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import LeakyReLU
 
 batch_size = 64
-epochs = 20
+epochs = 10
 num_classes = 60
 
 #Add network
